@@ -1,0 +1,21 @@
+/* frontend/src/pages/CarListPage/CarSortDropdown.module.css */
+
+.sortDropdown {
+  min-width: 180px;
+  font-size: 1rem;
+  height: 44px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin: 14 rem;
+}
+
+.sortDropdown:focus {
+  outline: none;
+  border-color: #d90429;
+  box-shadow: 0 0 0 0.1rem rgba(217, 4, 41, 0.15);
+}

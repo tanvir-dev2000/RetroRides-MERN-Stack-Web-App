@@ -1,0 +1,41 @@
+/* frontend/src/App.css */
+
+/* If you have a .App wrapper in App.jsx, ensure it's also display:flex, flex-direction:column, flex-grow:1 */
+/* Example:
+.App {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
+*/
+
+.loginBgContainer {
+  width: 100%;
+  height: 100%; /* Fills the <main> element from RootLayout */
+  background-image: url('/images/classic-car-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; /* Consider if needed later */
+  
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  
+  padding-left: 21vw;            
+  padding-top: 20px;           
+  padding-bottom: 20px;         
+  padding-right: 20px;       
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.loginBgContainer a, 
+.loginBgContainer .toggleLink {
+  color: #ffffff;
+}
+.loginBgContainer a:hover,
+.loginBgContainer .toggleLink:hover {
+  color: #dddddd;
+}

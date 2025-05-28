@@ -1,0 +1,126 @@
+/* frontend/src/pages/NewSite/HeroSection.module.css */
+.heroSection {
+  height: 100vh; /* Full viewport height */
+  width: 100%;
+  position: relative; /* For positioning children absolutely */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden; /* Prevent scrollbars if video dimensions are slightly off */
+  color: #ffffff; /* Default text color for this section */
+}
+
+.backgroundVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1; /* Video layer */
+  transform: translateX(-50%) translateY(-50%);
+  object-fit: cover; /* Ensures video covers the area, might crop */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65); /* Black overlay, adjust opacity as needed */
+  z-index: 2; /* Overlay layer, above video */
+}
+
+.content {
+  position: relative; /* Ensure content is above overlay */
+  z-index: 3; /* Content layer, above overlay */
+  padding: 20px;
+  max-width: 900px; /* Max width for the text content */
+}
+
+.mainHeadline {
+  font-size: clamp(2.8rem, 6vw, 4.8rem); /* Responsive font size */
+  font-weight: 700; /* Bold for main headline */
+  color: #ffffff;
+  margin-bottom: 0.75em;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Subtle text shadow for readability */
+  line-height: 1.2;
+}
+
+.subHeadline {
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem); /* Responsive font size */
+  font-weight: 300; /* Lighter font for sub-headline */
+  color: #e0e0e0; /* Slightly off-white */
+  margin-bottom: 2.5em;
+  line-height: 1.7;
+  max-width: 700px; /* Limit width of subtitle for readability */
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  justify-content: center;
+  gap: 1rem; /* Space between buttons */
+}
+
+.btn {
+  padding: 0.9em 2.2em;
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out, transform 0.15s ease-out, box-shadow 0.25s ease-in-out;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border: 2px solid transparent;
+  min-width: 220px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btnPrimary {
+  background-color: #d90429; /* Strong red */
+  color: #ffffff; /* White text */
+  border-color: #d90429;
+}
+.btnPrimary:hover {
+  background-color: #b80020; /* Darker red on hover */
+  border-color: #b80020;
+  color: #ffffff; /* Explicitly keep text white */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(217, 4, 41, 0.3);
+}
+
+.btnSecondary {
+  background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+  color: #1a1a1a; /* Dark text */
+  border: 2px solid #1a1a1a; /* Changed from transparent to match text */
+}
+.btnSecondary:hover {
+  background-color: #ffffff; /* Solid white on hover */
+  color: #000000; /* Explicitly keep text black */
+  border-color: #000000; /* Match hover text color */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Media query for smaller screens if needed, e.g., to adjust text size further */
+@media (max-width: 768px) {
+  .mainHeadline {
+    font-size: clamp(2.2rem, 7vw, 3.5rem);
+  }
+  .subHeadline {
+    font-size: clamp(1rem, 3vw, 1.3rem);
+    margin-bottom: 2em;
+  }
+  .btn {
+    width: 90%; /* Make buttons take more width on small screens */
+    max-width: 300px;
+  }
+}

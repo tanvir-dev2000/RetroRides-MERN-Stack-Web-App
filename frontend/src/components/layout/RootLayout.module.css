@@ -1,0 +1,18 @@
+/* frontend/src/components/layout/RootLayout.module.css */
+.rootLayoutContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-grow: 1; /* Will take all space given by #root */
+  overflow: hidden; /* Prevent this container itself from scrolling due to children */
+  min-height: 100vh;
+}
+
+.mainContent {
+  flex-grow: 1; /* This main area will take all space below the navbar */
+  display: flex; /* Crucial: Allows its children to use height: 100% */
+  flex-direction: column; /* Align children vertically */
+  width: 100%;
+  /* overflow-y: auto; /* Let specific content scroll if needed, not main itself for this page */
+  /* paddingTop is applied inline via RootLayout.jsx for the navbar */
+}

@@ -1,0 +1,54 @@
+/* frontend/src/index.css */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #212529;
+  background-color: #ffffff; /* Or your default light theme, e.g., #f4f6f8 */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body {
+margin: 0;
+  display: flex;
+  
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--body-bg, #ffffff); 
+}
+
+#root {
+  max-width: 100%; 
+  margin: 0 auto;
+  text-align: center; /* Often overridden by page/component specific alignment */
+  width: 100%; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+a {
+  font-weight: 500;
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

@@ -1,0 +1,510 @@
+/* frontend/src/pages/CarListPage/CarListPage.module.css */
+.carListPageContainer {
+  background-color: #f8f9fa; /* Light page background */
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Roboto', Arial, sans-serif; /* Consistent font */
+}
+
+.pageHeaderSection {
+  background-color: #1a1a1a; /* Dark header bg */
+  color: #ffffff;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.pageHeaderContainer { /* Container for header content */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  font-size: clamp(2.2rem, 5vw, 3.2rem); /* Adjusted from your 2.5em */
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #ffffff; /* Ensure title is white on dark bg */
+}
+
+.highlight {
+  color: #d90429; 
+}
+
+.pageSubtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #e0e0e0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mainContentSection {
+  /* No specific styling needed here, container below handles it */
+}
+
+.container { /* General container for content within mainContentSection */
+  max-width: 1400px; 
+  margin: 0 auto;
+  padding: 0 1.5rem; 
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mainGrid {
+  display: grid;
+  grid-template-columns: 280px 1fr; 
+  gap: 2.5rem; 
+}
+
+.filtersPanel {
+  background-color: #ffffff; 
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  height: fit-content; 
+  border: 1px solid #e7e7e7;
+}
+
+.panelTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.filterGroup {
+  margin-bottom: 1.25rem;
+}
+.filterGroup label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  color: #343a40;
+}
+.filterGroup select,
+.filterGroup input[type="number"],
+.filterGroup input[type="text"] {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background-color: #fdfdfd;
+  box-sizing: border-box;
+}
+.filterGroup select:focus,
+.filterGroup input:focus {
+  outline: none;
+  border-color: #d90429;
+  box-shadow: 0 0 0 0.1rem rgba(217, 4, 41, 0.15);
+}
+.resetFiltersButton {
+    display: block;
+    width: 100%;
+    padding: 0.6em 1em;
+    margin-top: 1.5rem;
+    background-color: #6c757d; /* Grey for reset */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.resetFiltersButton:hover {
+    background-color: #5a6268;
+}
+
+
+.listingsArea {
+  /* Takes remaining space */
+}
+
+.topControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem; /* Reduced */
+  flex-wrap: wrap; 
+  gap: 1rem;
+}
+
+.searchBarInput {
+  flex-grow: 1; 
+  min-width: 250px; 
+  padding: 0.7rem 0.9rem; /* Adjusted */
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem; /* Adjusted */
+}
+.searchBarInput:focus {
+  outline: none;
+  border-color: #d90429;
+  box-shadow: 0 0 0 0.1rem rgba(217, 4, 41, 0.15);
+}
+
+.sortDropdown {
+  padding: 0.7rem 0.9rem; /* Adjusted */
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem; /* Adjusted */
+  background-color: #ffffff;
+  min-width: 180px; /* Adjusted */
+}
+.sortDropdown:focus {
+  outline: none;
+  border-color: #d90429;
+  box-shadow: 0 0 0 0.1rem rgba(217, 4, 41, 0.15);
+}
+
+.carGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax */
+  gap: 1.75rem; /* Adjusted gap */
+}
+
+.carCard {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.07); /* Adjusted shadow */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+.carCard:hover {
+  transform: translateY(-4px); /* Adjusted hover effect */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Adjusted hover shadow */
+}
+
+.carLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.carImageContainer {
+  width: 100%;
+  padding-top: 66.66%; /* Aspect ratio 3:2 */
+  position: relative;
+  background-color: #f0f0f0;
+}
+.carImage {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+}
+.noImageAvailable {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  color: #777; font-size: 0.9em; background-color: #e9ecef;
+}
+
+.carInfo {
+  padding: 1rem; /* Adjusted padding */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.carTitle {
+  font-size: 1.15rem; /* Adjusted */
+  color: #212529; /* Darker title */
+  margin: 0 0 0.4rem 0; /* Adjusted margin */
+  font-weight: 600;
+  line-height: 1.3;
+}
+.carYear {
+  font-size: 0.85rem; /* Adjusted */
+  color: #495057; /* Softer grey */
+  margin: 0 0 0.6rem 0; /* Adjusted margin */
+}
+.carPrice {
+  font-size: 1.1rem; /* Adjusted */
+  color: #d90429; /* Red price */
+  font-weight: bold;
+  margin-top: auto; /* Pushes price to bottom if card heights vary */
+}
+
+.loadingMessage, .emptyMessage {
+  text-align: center;
+  padding: 3rem 1rem; /* Adjusted padding */
+  font-size: 1.1rem; /* Adjusted */
+  color: #495057;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  margin-top: 1rem;
+}
+.message { /* General message class from your original CSS */
+  padding: 15px; margin: 20px 0; border-radius: 5px; text-align: center;
+}
+.errorMessage { /* Your original error message style, merged */
+  background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;
+  text-align: center; padding: 1rem; font-size: 1.1rem; margin-top: 1rem;
+  border-radius: 8px;
+}
+
+@media (max-width: 991px) {
+  .mainGrid {
+    grid-template-columns: 1fr; 
+  }
+  .filtersPanel {
+    margin-bottom: 2rem; 
+  }
+}
+
+@media (max-width: 768px) {
+  .pageHeaderSection {
+    padding: 2.5rem 1rem; /* Adjusted */
+    margin-bottom: 1.5rem;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  .topControls {
+    flex-direction: column; 
+    align-items: stretch; 
+  }
+  .searchBarInput, .sortDropdown {
+    width: 100%; 
+  }
+  .carGrid {
+    gap: 1.25rem; /* Adjusted */
+  }
+}
+
+.filtersPanel {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1.5rem 1rem;
+  min-width: 230px;
+  max-width: 260px;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.filtersHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.resetFiltersButton {
+  background: #eee;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  padding: 0.3rem 0.9rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+.resetFiltersButton:hover {
+  background: #d90429;
+  color: #fff;
+}
+.filterGroup {
+  margin-bottom: 1rem;
+}
+.filterLabel {
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+.checkboxLabel {
+  display: block;
+  font-weight: 400;
+  margin-bottom: 0.22rem;
+  font-size: 0.97rem;
+  cursor: pointer;
+}
+.sliderGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.sliderLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.93rem;
+  color: #888;
+  margin-top: 0.1rem;
+}
+.carListCardGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.carCardLink {
+  text-decoration: none;
+  color: inherit;
+}
+.carCardHorizontal {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1.2rem 1rem;
+  gap: 1.5rem;
+  transition: box-shadow 0.18s;
+  position: relative;
+}
+.carCardHorizontal:hover {
+  box-shadow: 0 4px 16px rgba(217,4,41,0.13);
+}
+.carCardImageWrapper {
+  min-width: 120px;
+  max-width: 140px;
+  height: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.carCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.featuredBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #d90429;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: bold;
+  padding: 3px 10px;
+  border-radius: 5px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+  letter-spacing: 1px;
+}
+.carCardMainInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+  justify-content: center;
+}
+.carCardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
+  text-align: left;
+}
+.carCardDescription {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-top: 0.2rem;
+  text-align: left;
+}
+
+.carCardTitle,
+.carCardDescription {
+  text-align: left;
+}
+
+.carCardPriceArea {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: right;
+}
+.carCardPrice {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #d90429;
+  margin-bottom: 0.5rem;
+}
+.noImageAvailable {
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 0.92rem;
+  border-radius: 10px;
+}
+@media (max-width: 900px) {
+  .mainGrid {
+    flex-direction: column;
+  }
+  .filtersPanel {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+  .carListCardGrid {
+    gap: 1rem;
+  }
+}
+
+.searchBarInput {
+  flex-grow: 1;
+  min-width: 250px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.searchBarInput:focus {
+  outline: none;
+  border-color: #d90429;
+  box-shadow: 0 0 0 0.1rem rgba(217, 4, 41, 0.15);
+}
+
+.topControlsRow {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: .5rem;
+  flex-wrap: wrap;
+}
+
+.searchBarInput {
+  flex: 1 1 300px;
+  min-width: 180px;
+  max-width: 600px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  height: 44px; /* Ensures same height as dropdown */
+  line-height: 1.2;
+}
+
+@media (max-width: 700px) {
+  .topControlsRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+  }
+  .searchBarInput,
+  .sortDropdown {
+    width: 100%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,105 @@
+/* frontend/src/pages/AboutUsPage/sections/AutomotiveLegacySection.module.css */
+.legacySection {
+  background-color: #e9ecef; /* Slightly different very light grey for this section */
+  /* Or use #ffffff for consistency if preferred */
+  color: #212529; /* Dark text */
+  padding: 4rem 1.5rem; 
+  margin: 2rem auto 0 auto; /* No bottom margin if it's the last content section before footer */
+  border-radius: 15px;
+  overflow: hidden;
+  max-width: 1600px;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 900px; /* Optimized for text readability */
+  margin: 0 auto;
+  width: 100%;
+  text-align: center; /* Center titles/subtitles */
+}
+
+.contentWrapper {
+  /* Styles for the main content block */
+}
+
+/* Optional accent image styling if you add one */
+.accentImage {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  /* Example: float: left; margin-right: 2rem; for side image */
+}
+
+.sectionTitle {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.highlight {
+  color: #d90429; /* Red highlight */
+}
+
+.introParagraph {
+  font-size: clamp(1.05rem, 2.1vw, 1.25rem);
+  color: #343a40;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  font-style: italic; /* Give it a slightly different feel */
+}
+
+.textBlock {
+  text-align: left; /* Align main paragraphs left for readability */
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #495057;
+  margin-bottom: 2.5rem;
+}
+
+.textBlock p {
+  margin-bottom: 1.5rem;
+}
+.textBlock p:last-child {
+  margin-bottom: 0;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: #d90429; /* Red button */
+  color: #ffffff;
+  padding: 0.8em 2.2em;
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border: 2px solid #d90429;
+  margin-top: 1rem; /* Space above button */
+}
+
+.ctaButton:hover {
+  background-color: #b80020; /* Darker red */
+  border-color: #b80020;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .legacySection {
+    padding: 3rem 1.5rem;
+  }
+  .accentImage {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .textBlock {
+    font-size: 0.9rem;
+  }
+}

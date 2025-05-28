@@ -1,0 +1,152 @@
+/* frontend/src/pages/AboutUsPage/sections/DeveloperTeamSection.module.css */
+.teamSection {
+  background-color: #ffffff; 
+  color: #333333;
+  padding: 4rem 1.5rem; 
+  margin: 2rem auto;
+  border-radius: 15px;
+  overflow: hidden;
+  max-width: 1600px;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1300px; 
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.highlight {
+  color: #d90429; 
+}
+
+.sectionSubtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #555555;
+  margin-bottom: 3.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 2.5rem; 
+}
+
+.teamMemberCard {
+  background-color: #f8f9fa; 
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center imageWrapper and text content */
+  padding-top: 2rem; /* Add padding at the top of the card for the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.teamMemberCard:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(217, 4, 41, 0.12);
+}
+
+.imageWrapper {
+  width: 150px; /* Fixed width for the circular image container */
+  height: 150px; /* Fixed height - making it a square */
+  position: relative;
+  background-color: #e0e0e0; 
+  border-radius: 50%; /* Make the wrapper itself circular to clip image */
+  overflow: hidden; /* Ensure image is clipped to the circle */
+  margin-bottom: 1.5rem; /* Space below the image */
+  border: 4px solid #ffffff; /* Optional: white border around circle */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.memberImage {
+  /* position: absolute; top: 0; left: 0; /* Not needed if wrapper is overflow:hidden */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image covers the square/circle */
+  object-position: center; /* Center the image content */
+  /* border-radius: 50%; /* Image itself is made circular by the wrapper's overflow:hidden */
+}
+
+.memberInfo {
+  padding: 0 1.5rem 1.5rem 1.5rem; /* Padding for text, no top padding as it's handled by card */
+  text-align: center; 
+  flex-grow: 1; 
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Ensure info takes full width for text alignment */
+}
+
+.memberName {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #d90429; 
+  margin-bottom: 0.25rem;
+}
+
+.memberRole {
+  font-size: 0.9rem;
+  color: #495057; 
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.memberBio {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #555555;
+  margin-bottom: 1.5rem;
+  flex-grow: 1; 
+}
+
+.socialLinks {
+  margin-top: auto; 
+  padding-top: 1rem; 
+}
+
+.socialLinks a {
+  color: #333333; 
+  font-size: 1.3rem;
+  margin: 0 0.6rem;
+  transition: color 0.2s ease;
+}
+
+.socialLinks a:hover {
+  color: #d90429; 
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .teamGrid {
+    grid-template-columns: 1fr; 
+  }
+  .teamMemberCard {
+    max-width: 380px; 
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .imageWrapper {
+    width: 120px; /* Slightly smaller circle on mobile */
+    height: 120px;
+  }
+}

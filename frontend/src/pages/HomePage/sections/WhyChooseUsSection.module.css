@@ -1,0 +1,135 @@
+/* frontend/src/pages/NewSite/WhyChooseUsSection.module.css */
+.whyChooseUsSection {
+  background-color: #161414;
+  color: #e0e0e0;
+  padding: 5rem 2rem; 
+  overflow: hidden;
+  margin: 1rem 1rem;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1100px; /* Increased max-width slightly to better accommodate 3 cards + gaps */
+  margin: 0 auto;
+  padding: 0 1rem; 
+}
+
+.textSideFull {
+  width: 100%;
+  text-align: center; 
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  text-align: center; 
+}
+
+.highlight {
+  color: #d90429;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #b0b0b0;
+  margin-bottom: 3rem;
+  line-height: 1.7;
+  text-align: center; 
+  max-width: 700px; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.reasonsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 2rem; 
+  margin-top: 2rem;
+}
+
+.reasonItem {
+  display: flex;
+  align-items: flex-start; 
+  gap: 1.5rem;
+  text-align: left; 
+  background-color: rgba(255, 255, 255, 0.03); 
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #2f2f2f;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  box-sizing: border-box;
+
+  /* Core Flex item sizing for responsiveness */
+  /* Each item will try to be around 300px. 
+     On a 1100px container with 2rem gaps, 3 items of ~300px + gaps fit.
+     (3 * 300px) + (2 * 2rem which is ~32px each = 64px) = 900 + 64 = 964px. This should fit.
+  */
+  flex: 1 1 300px; /* Grow if extra space, Shrink if needed, Basis of 300px */
+  max-width: 340px; /* Prevent item from becoming too wide on very large screens if only 1 or 2 items in a row */
+                   /* This also helps constrain them so 3 can fit. */
+}
+.reasonItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(217, 4, 41, 0.1);
+}
+
+.reasonIconWrapper {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(217, 4, 41, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d90429;
+}
+
+.reasonIcon {
+  font-size: 1.5rem;
+  color: #d90429;
+}
+
+.reasonText {
+  flex-grow: 1;
+}
+
+.reasonTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.reasonDescription {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #a0a0a0;
+}
+
+/* No complex media queries needed for flex-basis if using flex: 1 1 300px;
+   Flexbox will handle wrapping naturally.
+   The stack to single column is for very small screens. */
+
+@media (max-width: 700px) { /* Point where 2 columns might become too tight */
+  .reasonsGrid {
+      /* justify-content: flex-start; /* Or keep center if you prefer one item centered */
+  }
+  .reasonItem {
+    flex-basis: 100%; /* Stack items into a single column */
+    max-width: 100%; /* Allow full width */
+  }
+}
+
+@media (max-width: 480px) { /* General small screen adjustments */
+    .whyChooseUsSection {
+        padding: 4rem 1rem;
+    }
+}

@@ -1,0 +1,5 @@
+/* frontend/src/pages/ContactPage/ContactPage.module.css */
+.contactPageContainer {
+  background-color: #f8f9fa; /* Very light grey page background (white/red theme) */
+  width: 100%;
+}

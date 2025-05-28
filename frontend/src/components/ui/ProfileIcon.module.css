@@ -1,0 +1,21 @@
+/* frontend/src/components/ui/ProfileIcon.module.css */
+.profileIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  text-transform: uppercase;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.profileIcon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}

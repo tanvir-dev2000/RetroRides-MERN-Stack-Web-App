@@ -1,0 +1,244 @@
+/* frontend/src/pages/ContactPage/sections/ContactFormInfoSection.module.css */
+.contactFormInfoSection {
+  background-color: #ffffff; /* White background for this main content section */
+  color: #333333;
+  padding: 4rem 1.5rem; 
+  margin: 0 auto 2rem auto; /* Margin from hero and before map, no top margin if hero is full width */
+  border-radius: 15px;
+  overflow: visible; /* Allow shadows from cards to show if needed */
+  max-width: 1600px;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1300px; /* Accommodate two columns */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* Left column (form) slightly wider */
+  gap: 3rem; /* Gap between form and info tiles */
+}
+
+.formColumn, .infoColumn {
+  /* Base styles if any */
+}
+
+.columnTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+.infoColumn .columnTitle { /* If info column also had a title */
+  text-align: left; /* Default if needed, but tiles have their own titles */
+}
+
+.highlight {
+  color: #d90429; /* Red highlight */
+}
+
+/* Contact Form Styles */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #495057;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="email"],
+.formGroup input[type="tel"],
+.formGroup textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #333;
+  background-color: #f8f9fa; /* Light input background */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: #d90429;
+  box-shadow: 0 0 0 0.15rem rgba(217, 4, 41, 0.2);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitButton {
+  background-color: #d90429;
+  color: #ffffff;
+  padding: 0.9em 1.5em;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  align-self: flex-start; /* Align button to the left */
+}
+.submitButton:hover {
+  background-color: #b80020;
+  transform: translateY(-1px);
+}
+
+.statusMessage {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+}
+.statusMessage.success {
+  background-color: #d1e7dd; /* Bootstrap success green */
+  color: #0f5132;
+  border: 1px solid #badbcc;
+}
+.statusMessage.error {
+  background-color: #f8d7da; /* Bootstrap danger red */
+  color: #842029;
+  border: 1px solid #f5c2c7;
+}
+
+
+/* Info Tiles Styles */
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Space between tiles */
+}
+
+.infoTile {
+  background-color: #f8f9fa; /* Very light grey for tiles */
+  padding: 1.75rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: left;
+}
+
+.tileIconWrapper {
+  font-size: 1.8rem;
+  color: #d90429; /* Red icon */
+  margin-bottom: 1rem;
+  width: 40px; /* To align with title if text wraps */
+}
+
+.tileTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+}
+
+.tileText {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 0.3rem;
+}
+.tileText:last-of-type {
+  margin-bottom: 0.75rem; /* More space after last line of text */
+}
+
+.tileEmailLink {
+  font-size: 0.9rem;
+  color: #d90429;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 0.25rem;
+}
+.tileEmailLink:hover {
+  text-decoration: underline;
+}
+
+.socialMediaLinks {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 1rem;
+}
+.socialMediaLinks a {
+  color: #333;
+  font-size: 1.5rem; /* Size of social icons */
+  transition: color 0.2s ease;
+}
+.socialMediaLinks a:hover {
+  color: #d90429;
+}
+
+.tileDescription {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.tileCtaLink {
+  display: inline-block;
+  background-color: transparent;
+  color: #d90429;
+  padding: 0.5em 1em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 1.5px solid #d90429;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.tileCtaLink:hover {
+  background-color: #d90429;
+  color: #ffffff;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .grid {
+    grid-template-columns: 1fr; /* Stack columns */
+    gap: 2.5rem; /* Gap when stacked */
+  }
+  .formColumn {
+    order: 1; /* Form first */
+  }
+  .infoColumn {
+    order: 2; /* Info tiles second */
+  }
+  .columnTitle {
+    text-align: center; /* Center column titles when stacked */
+  }
+}
+
+@media (max-width: 768px) {
+  .contactFormInfoSection {
+    padding: 3rem 1rem; /* Less padding on mobile */
+    margin-bottom: 1.5rem;
+  }
+  .infoTile {
+    padding: 1.5rem;
+  }
+}

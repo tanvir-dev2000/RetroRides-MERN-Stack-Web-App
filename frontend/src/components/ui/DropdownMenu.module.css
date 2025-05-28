@@ -1,0 +1,68 @@
+/* frontend/src/components/ui/DropdownMenu.module.css */
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 10px); /* Position below the profile icon */
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1050; 
+  width: 220px;
+  border: 1px solid #e7eaf3;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeInDropdown 0.3s forwards ease-out;
+  padding: 5px 0; /* Add some padding around the list */
+}
+
+@keyframes fadeInDropdown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownHeader {
+  padding: 10px 16px;
+  font-weight: 600;
+  color: #333a56;
+  border-bottom: 1px solid #e7eaf3;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dropdownList { /* Changed from .dropdownMenu ul */
+  list-style: none;
+  padding: 5px 0; /* Add some vertical padding to the list itself */
+  margin: 0;
+}
+
+.dropdownItem {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  color: #525f7f; /* Softer text color */
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-weight: 500;
+}
+
+.dropdownItem:hover {
+  background-color: #f4f7fc;
+  color: #3498db; /* Primary hover color */
+}
+
+.logoutButton {
+  color: #e74c3c; 
+  font-weight: 500;
+}
+.logoutButton:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #c0392b; /* Darker red on hover */
+}

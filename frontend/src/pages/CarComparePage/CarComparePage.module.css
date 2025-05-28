@@ -1,0 +1,363 @@
+.comparePage {
+  width: 100%;
+  margin: 2rem auto;
+  background: #f4f4f4;
+  border-radius: 12px;
+  padding: 2rem 1rem 3rem 1rem;
+}
+
+.compareTitle {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.compareTableContainer {
+  margin-bottom: 2rem;
+}
+
+/* Main comparison table styles */
+.compareTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.compareTable th, .compareTable td {
+  text-align: center;
+  padding: 1rem 2.5rem;
+  font-size: 1.08rem;
+  border-bottom: 1px solid #eee;
+}
+
+.compareTable th.featureCol,
+.compareTable td.featureCol {
+  background: #f9f9f9;
+  font-weight: bold;
+  text-align: left;
+  min-width: 120px;
+}
+
+.compareTable th.carCol {
+  background: #f9f9f9;
+  font-weight: bold;
+  font-size: 1.08rem;
+}
+
+.compareTable tr:nth-child(even) td:not(.featureCol) {
+  background: #fffbe7;
+}
+
+.imageCell {
+  background: #fff;
+  padding: 1.4rem 0.6rem;
+}
+
+.altCell {
+  background: #fffbe7;
+}
+
+.compareTable tr:last-child td,
+.compareTable tr:last-child th {
+  border-bottom: none;
+}
+
+.clearBtn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  background: #d90429;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background 0.18s;
+}
+
+.clearBtn:hover {
+  background: #a0021e;
+}
+
+.searchBarArea {
+  margin: 0 auto 2rem auto;
+  max-width: 420px;
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border: 1.5px solid #bbb;
+  border-radius: 7px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.searchLoading {
+  font-size: 0.98rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+.searchResults {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  margin: 0.3rem 0 0 0;
+  padding: 0;
+  list-style: none;
+  max-height: 180px;
+  overflow-y: auto;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+.searchResultItem {
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.searchResultItem:hover {
+  background: #f8e9ec;
+}
+
+.removeBtn {
+  margin-left: 0.7em;
+  color: #d90429;
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+/* Feature column (left) */
+.detailLabel,
+.compareTable th.featureCol,
+.compareTable td.featureCol {
+  font-weight: bold;
+  background: #fafafa;
+  text-align: left;
+  padding-left: 1.2rem;
+}
+
+/* Car image in table */
+.compareImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: block;
+  margin: 0 auto;
+}
+
+.noCompareImage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f3f3;
+  color: #aaa;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.compareCardsRow {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 2.1rem;
+  margin-top: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.compareCard {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  padding: 1.5rem 1.2rem 2rem 1.2rem;
+  min-width: 320px;
+  max-width: 420px; /* Was 340px, increase if needed */
+  flex: 1 1 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0 0.5rem;
+}
+
+.compareCardHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.13rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.compareCardTitle {
+  width: 100%;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+}
+
+.compareCardImageBox {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.7rem;
+}
+
+
+.compareCardSearchArea {
+  width: 100%;
+  margin-bottom: 1.1rem;
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border: 1.5px solid #bbb;
+  border-radius: 7px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.searchLoading {
+  font-size: 0.98rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+.searchResults {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  margin: 0.3rem 0 0 0;
+  padding: 0;
+  list-style: none;
+  max-height: 180px;
+  overflow-y: auto;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+}
+
+.searchResultItem {
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.searchResultItem:hover {
+  background: #f8e9ec;
+}
+
+.compareCardDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.detailLabel {
+  font-weight: bold;
+  color: #333;
+}
+
+.detailValue {
+  color: #222;
+}
+
+.removeBtnBottom {
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  background: #d90429;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background 0.18s;
+}
+
+.removeBtnBottom:hover {
+  background: #a0021e;
+}
+
+.clearBtn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  background: #d90429;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background 0.18s;
+}
+
+.clearBtn:hover {
+  background: #a0021e;
+}
+
+
+@media (max-width: 900px) {
+  .compareCardsRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .compareCard {
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+.heroSection {
+  background: #181818;
+  color: #fff;
+  padding: 2.5rem 1rem 1.5rem 1rem;
+  text-align: center;
+  border-radius: 16px;
+  margin-bottom: 2.5rem;
+}
+
+.heroTitle {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.01em;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  font-weight: 400;
+  opacity: 0.92;
+  margin-bottom: 0;
+}

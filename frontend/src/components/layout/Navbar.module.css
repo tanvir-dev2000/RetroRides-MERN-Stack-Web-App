@@ -1,0 +1,207 @@
+/* frontend/src/components/layout/Navbar.module.css */
+.navbar {
+  background-color: #1f1e1e;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  padding: 0 20px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.navLogo { /* Styles for the <a> tag of the logo */
+  color: #ecf0f1;
+  cursor: pointer;
+  font-size: 1.9rem; /* Specific font size for logo text */
+  text-decoration: none !important; /* Ensure no default underline */
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  /* Remove padding if you want underline strictly on text, or keep for larger click area */
+  /* padding: 0 0.5rem; /* Example padding if needed */
+  display: inline-flex; /* Helps with alignment if span is inline-block */
+  align-items: center; /* Aligns span vertically if navLogo has height */
+}
+
+.navLogo:hover { /* Text color change for the logo text itself */
+  color: #b80808; /* Or keep #ecf0f1 if only underline should change color */
+}
+
+.navMenu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.navItem {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 15px 0px;
+  
+}
+
+.navLinks { /* Styles for other <a> tags (HOME, CARS, etc.) */
+  color: #bdc3c7;
+  display: flex;
+  align-items: center;
+  text-decoration: none !important;
+  padding: 0 1.2rem;
+   
+  height: 100%;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+  box-sizing: border-box;
+  position: relative; 
+}
+
+.navLinks:focus {
+  outline: none;
+  
+}
+
+.navLinkText { /* Common class for all <span> elements that get the underline */
+  display: inline-block; 
+  position: relative; 
+  padding-bottom: 5px; 
+  
+}
+
+.navLinkText::after {
+  content: ''; 
+  position: absolute;
+  width: 100%; 
+  height: 3px; 
+  background-color: #b80808; 
+  bottom: 0; 
+  left: 0;
+  transform: scaleX(0); 
+  transform-origin: left; 
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+   
+}
+
+/* Underline animation for .navLinks (HOME, CARS, etc.) */
+.navLinks:hover .navLinkText::after,
+.navLinks.active .navLinkText::after,
+.navLinks:focus-visible .navLinkText::after { 
+  transform: scaleX(1); 
+}
+
+/* ADDED: Underline animation for .navLogo */
+.navLogo:hover .navLinkText::after,
+.navLogo:focus-visible .navLinkText::after { /* .navLogo usually won't have .active state from NavLink */
+  transform: scaleX(1);
+}
+
+/* Text color changes for .navLinks */
+.navLinks:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08); /* Change to white on hover */
+}
+.navLinks.active {
+  color: #ffffff;
+   
+}
+.navLinks.active {
+  font-weight: 600; 
+}
+
+.navActionItems {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navCartLink { 
+  color: #bdc3c7;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+}
+
+.navCartLink:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Underline animation for .navCartLink */
+.navCartLink:hover .navLinkText::after,
+.navCartLink.active .navLinkText::after, 
+.navCartLink:focus-visible .navLinkText::after {
+   transform: scaleX(1);
+}
+
+.profileDropdownContainer {
+  position: relative;
+}
+
+.profileButton {
+  background: none;
+  border: none;
+  padding: 0;
+  margin:0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.profileButton:focus {
+  outline: 2px solid #b80808;
+  outline-offset: 2px;
+}
+
+.navButton {
+  background-color: #b80808;
+  color: #ffffff !important;
+  padding: 9px 18px !important;
+  border-radius: 5px;
+  font-weight: 500;
+  border-bottom: none !important;
+  line-height: normal;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease;
+}
+
+.navButton:hover {
+  background-color: #9c0808;
+  color: #ffffff !important;
+  border-bottom: none !important;
+}
+
+.navCartLink {
+  color: #fff;
+  margin-right: 1.2rem;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+.navCartLink:hover {
+  color: #d90429;
+}

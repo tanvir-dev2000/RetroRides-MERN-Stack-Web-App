@@ -1,0 +1,167 @@
+/* frontend/src/pages/NewSite/WelcomeSection.module.css */
+.welcomeSection {
+  background-color: #161414; /* Very dark gray / almost black background */
+  color: #e0e0e0; /* Light gray text for readability */
+  padding: 5rem 2rem; /* Generous padding */
+  text-align: center;
+    margin: 1rem 1rem;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #ffffff; /* White title */
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.highlight {
+  color: #d90429; /* Primary Red */
+}
+
+.welcomeText {
+  margin-bottom: 4rem;
+}
+
+.introParagraph {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #b0b0b0; /* Slightly dimmer than main text */
+}
+
+.intriguingSentence {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  font-weight: 500; /* Slightly bolder */
+  line-height: 1.7;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #ffffff; /* White for emphasis */
+}
+
+/* Services Overview */
+.servicesOverview {
+  padding-top: 2rem; /* Space above the services grid */
+}
+
+.subSectionTitle {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative; /* For optional underline pseudo-element */
+}
+
+/* Optional: Underline for subsection title */
+.subSectionTitle::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #d90429; /* Red underline */
+  margin: 0.75rem auto 0; /* Center the underline */
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: 2.5rem; /* Space between service boxes */
+}
+
+.serviceBox {
+  background-color: #1f1f1f; /* Slightly lighter than section bg */
+  padding: 2.5rem 2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: center;
+  border: 1px solid #333333; /* Subtle border */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.serviceBox:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(217, 4, 41, 0.15); /* Subtle red glow on hover */
+}
+
+.serviceIconContainer {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #d90429; /* Red background for icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.serviceIcon {
+  font-size: 2.2rem; /* Size of the Font Awesome icon */
+  color: #ffffff; /* White icon */
+}
+
+.serviceBox:hover .serviceIconContainer {
+  background-color: #ffffff; /* White background on hover */
+}
+.serviceBox:hover .serviceIcon {
+  color: #d90429; /* Red icon on hover */
+}
+
+.serviceTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.serviceDescription {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #a0a0a0; /* Lighter gray for description */
+  flex-grow: 1; /* Helps if boxes have varying text length to align buttons if any */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .welcomeSection {
+    padding: 4rem 1.5rem;
+  }
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  .serviceBox {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+  .subSectionTitle {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+  .introParagraph, .intriguingSentence {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+  }
+  .serviceTitle {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,6 @@
+/* frontend/src/pages/AboutUsPage/AboutUsPage.module.css */
+.aboutPageContainer {
+  background-color: #f8f9fa; /* Very light grey for the About Us page background */
+  width: 100%;
+  /* Individual sections will handle their own padding and margins */
+}

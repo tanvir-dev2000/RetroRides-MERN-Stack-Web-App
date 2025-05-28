@@ -1,0 +1,390 @@
+/* frontend/src/pages/HomePage.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root { /* Define variables if used, or use direct values */
+  --yellow: #f9d806;
+  --light-yellow: #ffee80;
+  --black: #130f40;
+  --light-color: #666;
+  --border: .1rem solid rgba(0,0,0,.1);
+  --box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  
+}
+
+.homePageWrapper {
+  background-color: #262626; 
+  width: 100%; 
+}
+
+.homePageContainer {
+  font-family: 'Poppins', sans-serif;
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  outline: none; border: none;
+  text-decoration: none;
+  
+  /* transition: all .2s linear; */ /* Removed global transition to avoid conflicts */
+}
+
+.section {
+  padding: 2rem 9%;
+}
+
+.sectionTitle {
+  text-align: center;
+  color: var(--black, #130f40);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem; /* Added for spacing */
+  font-size: 3.5rem;
+  position: relative;
+}
+.sectionTitle::before { /* Underline for section titles */
+    content: '';
+    position: absolute;
+    bottom: 1rem; /* Adjusted */
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--yellow, #f9d806);
+    width: 12rem;
+    height: .3rem;
+}
+.sectionTitle span {
+  color: var(--yellow, #f9d806);
+}
+
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  border-radius: .5rem;
+  background: var(--light-yellow, #ffee80);
+  color: var(--black, #130f40);
+  font-weight: 500;
+  font-size: 1.7rem;
+  cursor: pointer;
+  padding: .8rem 3rem;
+  border: .1rem solid var(--light-yellow, #ffee80);
+  transition: all .2s linear;
+}
+.btn:hover {
+  background: var(--yellow, #f9d806);
+  border-color: var(--yellow, #f9d806);
+}
+
+/* Home Section */
+.home {
+  padding-top: 10rem; /* Adjust if your main navbar height is different or RootLayout provides padding */
+  text-align: center;
+  overflow-x: hidden;
+  min-height: 80vh; /* Attempt to make it somewhat full screen */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+}
+.homeTitle {
+  font-size: 7.5vw; /* Responsive font size */
+  color: var(--black, #130f40);
+  text-transform: uppercase;
+}
+.homeImageContainer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.homeImg {
+  width: 100%;
+  max-width: 600px; /* Control max size of car image */
+  animation: float 3s linear infinite;
+}
+@keyframes float{
+  0%, 100%{ transform: translateY(0rem); }
+  50%{ transform: translateY(3rem); }
+}
+.homeBtn {
+    text-transform: uppercase;
+}
+
+
+/* Vehicles Section */
+.vehicles {
+    background: #f0f0f0; /* Optional background
+}
+.vehiclesSlider { /* This is .swiperContainer */
+  /* Swiper styles would go here if not using React Swiper's CSS */
+  padding-bottom: 5rem; /* Space for pagination */
+}
+.vehiclesSlider .swiperWrapper { /* This is .swiperWrapper */
+    display: flex; /* Simulate swiper wrapper for static display */
+    overflow-x: auto; /* Allow horizontal scroll for static display */
+    padding: 1rem 0;
+}
+.vehiclesSlider .box { /* This is .swiperSlide .box */
+  text-align: center;
+  background: #fff;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow, 0 .5rem 1rem rgba(0,0,0,.1));
+  padding: 2rem;
+  margin: 1rem; /* Space between static items */
+  min-width: 300px; /* Min width for scrollable items */
+  border: var(--border, .1rem solid rgba(0,0,0,.1));
+}
+.vehiclesSlider .box img {
+  width: 100%;
+  height: 15rem; /* Fixed height for consistency */
+  object-fit: contain; /* Or cover, depending on image aspect ratio */
+  margin-bottom: 1rem;
+}
+.vehiclesSlider .box .content h3 {
+  font-size: 2.2rem;
+  color: var(--black, #130f40);
+}
+.vehiclesSlider .box .content .price {
+  font-size: 2.5rem;
+  color: var(--yellow, #f9d806);
+  padding: 1rem 0;
+  font-weight: bolder;
+}
+.vehiclesSlider .box .content .price span {
+  font-size: 1.7rem;
+  color: var(--light-color, #666);
+  font-weight: normal;
+}
+.vehiclesSlider .box .content p {
+  padding: 0;
+  padding-top: 1rem;
+  border-top: var(--border, .1rem solid rgba(0,0,0,.1));
+  font-size: 1.2rem; /* Adjusted */
+  color: var(--light-color, #666);
+}
+.vehiclesSlider .box .content p .detailItem { /* Changed from span to a class for clarity */
+  padding:0 .5rem;
+}
+.vehiclesSlider .box .content p .newTag {
+    background: var(--yellow, #f9d806);
+    color: var(--black, #130f40);
+    padding: .2rem .8rem;
+    border-radius: .3rem;
+    font-weight: 500;
+    margin-right: .5rem;
+}
+
+/* Services Section */
+.services .boxContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+.services .boxContainer .box {
+  text-align: center;
+  padding: 2rem;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow, 0 .5rem 1rem rgba(0,0,0,.1));
+  border: var(--border, .1rem solid rgba(0,0,0,.1));
+}
+.services .boxContainer .box i {
+  height: 6rem;
+  width: 6rem;
+  line-height: 6rem;
+  font-size: 2.5rem;
+  color: var(--black, #130f40);
+  background: var(--yellow, #f9d806);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.services .boxContainer .box h3 {
+  font-size: 2.2rem;
+  color: var(--black, #130f40);
+}
+.services .boxContainer .box p {
+  line-height: 1.8;
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  color: var(--light-color, #666);
+}
+
+/* Featured Cars Section */
+.featuredSlider { /* This is .swiperContainer */
+    padding-bottom: 5rem;
+}
+.featuredSlider .swiperWrapper { /* This is .swiperWrapper */
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem 0;
+}
+.featuredSlider .box { /* This is .swiperSlide .box */
+  text-align: center;
+  padding: 2rem;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow, 0 .5rem 1rem rgba(0,0,0,.1));
+  border: var(--border, .1rem solid rgba(0,0,0,.1));
+  margin: 1rem;
+  min-width: 280px; /* Min width for scrollable items */
+}
+.featuredSlider .box img {
+  height: 15rem;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+.featuredSlider .box h3 {
+  font-size: 2.2rem;
+  color: var(--black, #130f40);
+}
+.featuredSlider .box .stars {
+  padding: 1rem 0;
+}
+.featuredSlider .box .stars i {
+  font-size: 1.7rem;
+  color: var(--yellow, #f9d806);
+}
+.featuredSlider .box .price {
+  font-size: 2.5rem;
+  color: var(--black, #130f40);
+}
+
+/* Newsletter Section */
+.newsletter {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: url('/images/retro-theme/letter-bg.png') no-repeat center center/cover; /* Ensure image exists */
+}
+.newsletter h3 {
+  color: var(--black, #130f40);
+  font-size: 3rem;
+}
+.newsletter p {
+  color: var(--light-color, #666);
+  font-size: 1.5rem;
+  padding: 1rem 0;
+}
+.newsletter form {
+  margin: 1rem auto;
+  max-width: 60rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow, 0 .5rem 1rem rgba(0,0,0,.1));
+  border: var(--border, .1rem solid rgba(0,0,0,.1));
+}
+.newsletter form input[type="email"] {
+  height: 100%;
+  width: 100%;
+  font-size: 1.6rem;
+  color: var(--black, #130f40);
+  text-transform: none;
+  padding: 0 2rem;
+  border: none; /* Added */
+}
+.newsletter form input[type="submit"] {
+  height: 100%;
+  width: auto; /* Fit content */
+  padding: 0 2rem;
+  font-size: 1.6rem;
+  /* Styles from .btn are mostly applied already if class .btn is used */
+}
+
+
+/* Reviews Section */
+.reviewSlider { /* This is .swiperContainer */
+    padding-bottom: 5rem;
+}
+.reviewSlider .swiperWrapper { /* This is .swiperWrapper */
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem 0;
+}
+.reviewSlider .box { /* This is .swiperSlide .box */
+  padding: 2rem;
+  margin: 1rem;
+  min-width: 320px; /* Min width for scrollable items */
+  text-align: center;
+  opacity: .8;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow, 0 .5rem 1rem rgba(0,0,0,.1));
+  border: var(--border, .1rem solid rgba(0,0,0,.1));
+  /* transform: scale(.9); */ /* Removed transform for static display */
+}
+/* .reviewSlider .swiper-slide-active .box { */ /* For active swiper slide */
+  /* opacity: 1; */
+  /* transform: scale(1); */
+/* } */
+.reviewSlider .box img {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: .5rem;
+}
+.reviewSlider .box .content p {
+  font-size: 1.4rem;
+  color: var(--light-color, #666);
+  padding: 1rem 0;
+}
+.reviewSlider .box .content h3 {
+  font-size: 2.2rem;
+  color: var(--black, #130f40);
+}
+.reviewSlider .box .content .stars i {
+  font-size: 1.7rem;
+  color: var(--yellow, #f9d806);
+}
+
+/* Footer Section */
+.footer {
+  background: var(--light-yellow, #ffee80);
+}
+.footer .boxContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+}
+.footer .boxContainer .box h3 {
+  color: var(--black, #130f40);
+  font-size: 2.2rem;
+  padding: 1rem 0;
+}
+.footer .boxContainer .box a {
+  display: block;
+  color: var(--light-color, #666);
+  font-size: 1.4rem;
+  padding: 1rem 0;
+}
+.footer .boxContainer .box a i {
+  padding-right: .5rem;
+  color: var(--black, #130f40);
+}
+.footer .boxContainer .box a:hover i {
+  padding-right: 2rem;
+}
+.footer .credit {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 2.5rem;
+  font-size: 2rem;
+  color: var(--black, #130f40);
+  border-top: var(--border, .1rem solid rgba(0,0,0,.1));
+}
+
+
+/* Media Queries (from target site's style.css) */
+@media (max-width:991px){
+  .section { padding:2rem; }
+  .sectionTitle { font-size: 3rem; } /* Adjusted */
+  .homeTitle { font-size: 10vw; } /* Adjusted */
+}
+
+@media (max-width:768px){
+  .home { padding-top: 8rem; } /* Further adjust if main navbar is still too tall */
+  .homeTitle { font-size: 12vw; } /* Adjusted */
+  .vehiclesSlider .box, .featuredSlider .box, .reviewSlider .box { min-width: 90%; margin: 1rem auto; }
+  .newsletter form { max-width: 100%; }
+}
+
+@media (max-width:450px){
+  html{ font-size: 50%; } /* Affects rem units */
+  .sectionTitle { font-size: 2.5rem; } /* Adjusted */
+}

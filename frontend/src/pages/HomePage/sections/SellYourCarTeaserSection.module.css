@@ -1,0 +1,176 @@
+/* frontend/src/pages/NewSite/SellYourCarTeaserSection.module.css */
+.sellCarSection {
+  position: relative;
+  padding: 6rem 2rem;
+  color: #ffffff;
+  background-image: url('/images/retro-theme/sell-car-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  text-align: center;
+  margin: 1rem 1rem;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.backgroundOverlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: #161414;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1100px; /* Adjusted for better content width with centered benefits */
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.contentWrapper {
+  /* Stacking by default */
+}
+
+.textBlock {
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  color: #ffffff; 
+}
+
+.highlight {
+  color: #d90429;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  color: #e0e0e0;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: #d90429; /* Red button */
+  color: #ffffff; /* White text */
+  padding: 0.9em 2.5em;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  /* Added color to transition */
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border: 2px solid #d90429;
+  box-shadow: 0 4px 15px rgba(217, 4, 41, 0.25);
+}
+
+.ctaButton:hover {
+  background-color: #b80020; /* Darker red */
+  border-color: #b80020;
+  color: #ffffff; /* Explicitly keep text white */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(217, 4, 41, 0.35);
+}
+
+/* Using Flexbox for .benefitsBlock */
+.benefitsBlock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* This will center the items in each row */
+  gap: 2rem; /* Consistent gap */
+  margin-top: 3rem; /* Add some space above the benefits */
+}
+
+.benefitItem {
+  background-color: rgba(26, 26, 26, 0.75); /* Slightly more opaque */
+  padding: 2rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #464646;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  text-align: left; /* Text within card is left aligned */
+  
+  /* Flex properties for the items themselves */
+  flex-grow: 0; /* Don't grow to fill extra space beyond basis unless specified */
+  flex-shrink: 1; /* Allow shrinking if needed */
+  flex-basis: 300px; /* Ideal width for each card */
+  max-width: 360px; /* Max width to prevent cards from getting too large */
+  min-width: 280px; /* Min width for smaller views */
+}
+.benefitItem:hover {
+  background-color: rgba(35, 35, 35, 0.9);
+  border-color: #d90429;
+  transform: translateY(-5px);
+}
+
+.benefitIconWrapper {
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.benefitIcon {
+  font-size: 2rem;
+  color: #d90429;
+  width: 30px;
+  text-align: center;
+}
+
+.benefitText {
+  flex-grow: 1;
+}
+
+.benefitTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+}
+
+.benefitDescription {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #b0b0b0;
+}
+
+@media (max-width: 768px) {
+  .sellCarSection {
+    padding: 4rem 1.5rem;
+  }
+  .benefitItem {
+    flex-basis: 100%; /* Stack them by making them take full width */
+    max-width: 100%; /* Allow full width on small screens */
+    min-width: unset; /* Remove min-width for full stacking */
+    gap: 1rem;
+  }
+}
+
+/* Optional: To force a 3-column layout on wider screens with flexbox */
+/* This works if the container width allows for it and items are not exceeding max-width */
+/* @media (min-width: 992px) and (max-width: 1199px) {
+  .benefitItem {
+    flex-basis: calc(50% - 1rem); // Two columns (adjust for gap)
+    max-width: calc(50% - 1rem);
+  }
+}
+@media (min-width: 1200px) {
+  .benefitItem {
+    flex-basis: calc(33.333% - 1.33rem); // Three columns (adjust for gap)
+    max-width: calc(33.333% - 1.33rem);
+  }
+} */
+/* The default flex-basis: 300px and max-width: 360px with justify-content: center
+   should already create a responsive grid-like behavior that centers items. */

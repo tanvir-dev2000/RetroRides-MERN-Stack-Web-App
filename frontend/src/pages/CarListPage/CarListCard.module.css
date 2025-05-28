@@ -1,0 +1,113 @@
+/* frontend/src/pages/CarListPage/CarListCard.module.css */
+
+.carCardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.carCardHorizontal {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  padding: 2.2rem 2rem;
+  gap: 2.2rem;
+  min-height: 170px;
+  margin-bottom: 0.5rem;
+  transition: box-shadow 0.18s, transform 0.18s;
+  position: relative;
+  min-height: 200px;
+}
+
+.carCardHorizontal:hover {
+  box-shadow: 0 8px 28px rgba(217,4,41,0.13);
+  transform: translateY(-2px) scale(1.01);
+}
+
+.carCardImageWrapper {
+  min-width: 220px;      /* increased from 150px */
+  max-width: 260px;      /* increased from 170px */
+  height: 160px;         /* increased from 120px */
+  border-radius: 16px;   /* slightly larger for a modern look */
+  overflow: hidden;
+  position: relative;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #d90429;
+  color: #fff;
+  font-size: 0.93rem;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 6px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+  letter-spacing: 1px;
+}
+
+.noImageAvailable {
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
+.carCardMainInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  justify-content: center;
+  text-align: left;
+}
+
+.carCardTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+  text-align: left;
+}
+
+.carCardDescription {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin-top: 0.2rem;
+  text-align: left;
+}
+
+.carCardPriceArea {
+  min-width: 120px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  text-align: right;
+}
+
+.carCardPrice {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #d90429;
+  margin-bottom: 0.5rem;
+}

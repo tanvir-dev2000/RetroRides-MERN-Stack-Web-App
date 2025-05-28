@@ -1,0 +1,228 @@
+.featuredCarsSection {
+  background-color: #161414;
+  color: #e0e0e0;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  margin: 1rem 1rem;
+  border-radius: 15px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.highlight {
+  color: #d90429;
+}
+
+.sectionTitle {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #a0a0a0;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.carsSlider {
+  position: relative;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
+
+.swiperSlideCard {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  box-sizing: border-box;
+}
+
+.carCard {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  text-align: left;
+  width: 100%;
+  max-width: 350px;
+  min-width: 280px;
+  border: 1px solid #2a2a2a;
+  display: flex;
+  flex-direction: column;
+}
+
+.carCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(217, 4, 41, 0.2);
+}
+
+.cardImageContainer {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  background-color: #000000;
+}
+
+.carImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-out;
+}
+
+.carCard:hover .carImage {
+  transform: scale(1.1);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+  padding: 1rem;
+}
+
+.carCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+.detailsButton {
+  background-color: #d90429; color: #ffffff; padding: 0.6em 1.5em;
+  text-decoration: none; border-radius: 5px; font-weight: 600;
+  font-size: 0.9rem; transition: background-color 0.2s ease;
+  text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid #d90429;
+}
+
+.detailsButton:hover {
+  background-color: #ffffff; color: #d90429; border-color: #d90429;
+}
+
+.cardContent {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.carName {
+  font-size: 1.4rem;
+  font-weight: 600; color: #ffffff; margin-bottom: 0.3rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+.carYear {
+  font-size: 0.95rem; color: #a0a0a0; font-weight: 500;
+}
+
+.swiperControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 1rem;
+}
+
+.swiperNavButton {
+  color: #d90429;
+  background-color: rgba(26, 26, 26, 0.7);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid #444;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.swiperNavButton:hover {
+  background-color: #d90429;
+  color: #ffffff;
+  border-color: #d90429;
+}
+
+.swiperButtonPrev.swiper-button-disabled,
+.swiperButtonNext.swiper-button-disabled {
+  opacity: 0.35;
+  cursor: default;
+  background-color: rgba(85, 85, 85, 0.3);
+  color: #555;
+  border-color: #333;
+}
+
+/* --- Swiper Pagination Centering Fix --- */
+.carsSlider :global(.swiper-pagination),
+:global(.swiper-pagination) {
+  position: static !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 auto !important;
+  margin-top: 16px !important;
+  box-sizing: border-box;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+/* Swiper bullets styling */
+:global(.swiper-pagination-bullet) {
+  background: #888 !important;
+  opacity: 0.5 !important;
+  width: 10px !important;
+  height: 10px !important;
+  margin: 0 6px !important;
+  border-radius: 50%;
+  border: 1.5px solid #444 !important;
+  transition: background 0.2s, opacity 0.2s, border 0.2s;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background: #e63946 !important;
+  opacity: 1 !important;
+  width: 14px !important;
+  height: 14px !important;
+  border: 2.5px solid #e63946 !important;
+  box-shadow: 0 0 0 2px #fff, 0 0 8px #e6394644;
+  margin: 0 6px !important;
+}
+
+.carsSlider :global(.swiper-wrapper) {
+  align-items: stretch;
+}
+
+.loadingState, .errorState {
+  text-align: center;
+  padding: 3rem 0;
+  font-size: 1.5rem;
+  color: #a0a0a0;
+}
+.errorState {
+  color: #d90429;
+}
+
+

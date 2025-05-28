@@ -1,0 +1,276 @@
+/* frontend/src/components/admin/AdminDashboard.module.css */
+
+.adminPageContainer {
+  padding: 25px;
+  width: 100%;
+  height: max-content;
+  box-sizing: border-box;
+  background-color: #f4f6f8;
+  /* min-height: calc(100vh - var(--admin-header-height, 0px)); */
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.adminDashboardContainer {
+  padding: 25px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #f4f6f8;
+}
+
+.listSection,
+.formSection {
+  background-color: #ffffff;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+}
+
+.listHeader,
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.pageTitle,
+.listTitle,
+.formTitle {
+  font-size: 1.7em;
+  color: #212529;
+  font-weight: 600;
+  margin: 0;
+}
+
+.welcomeMessage {
+  font-size: 1em;
+  color: #495057;
+}
+
+.statsOverviewContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.statCard {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.statIcon {
+  font-size: 1.8em;
+  padding: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.statValue {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: #343a40;
+  margin-bottom: 3px;
+}
+
+.statLabel {
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+.tableResponsive {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.carTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  font-size: 0.9em;
+  line-height: 1.5; 
+}
+
+.carTable th,
+.carTable td {
+  border: 1px solid #dee2e6;
+  padding: 10px 12px; 
+  text-align: center;
+  vertical-align: middle; 
+}
+
+.carTable th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+  text-transform: uppercase;
+  font-size: 0.85em;
+}
+
+.carTableImage {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #e9ecef;
+  display: block; 
+}
+
+.noImagePlaceholder {
+  width: 80px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9ecef;
+  color: #adb5bd;
+  font-size: 0.8em;
+  border-radius: 4px;
+}
+
+.statusBadge {
+  padding: 3px 8px; 
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+  color: white;
+  text-transform: capitalize;
+  display: inline-block;
+  line-height: 1.4; 
+  vertical-align: middle; 
+}
+.statusAvailable { background-color: #28a745; }
+.statusSold { background-color: #dc3545; }
+.statusPending { background-color: #ffc107; color: #212529; }
+.statusDraft { background-color: #6c757d; }
+.statusUnknown { background-color: #adb5bd; color: #212529;}
+
+.actionsCell {
+  display: flex;
+  gap: 8px;
+  align-items: center; 
+  justify-content: flex-start;
+}
+
+.carForm { margin-top: 20px; }
+.formGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px 22px; margin-bottom: 20px; }
+.formGroup { display: flex; flex-direction: column; margin-bottom: 12px; }
+.formGroup:has(input[type="file"][name="images"]),
+.formGroup:has(input[type="file"][name="newImages"]) { margin-bottom: 5px; }
+.formGroup label { margin-bottom: 6px; font-weight: 500; color: #495057; font-size: 0.9em; }
+.inputField, .textareaField, .fileInput { width: 100%; padding: 10px 12px; border: 1px solid #ced4da; border-radius: 4px; font-size: 0.95em; box-sizing: border-box; transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;}
+.inputField:focus, .textareaField:focus { border-color: #80bdff; outline: 0; box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+.textareaField { min-height: 100px; resize: vertical; }
+.fileInput { padding: 8px; }
+
+.imagePreviewsContainer { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; padding: 12px; border: 1px dashed #adb5bd; border-radius: 5px; width: 100%; box-sizing: border-box; background-color: #f8f9fa; }
+.imagePreviewsContainer > p:first-child { margin-top: 0; margin-bottom: 10px; width: 100%; font-weight: 500; font-size: 0.9em; color: #343a40; }
+.imagePreviewItem { position: relative; border: 1px solid #dee2e6; padding: 5px; background-color: #ffffff; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.imagePreviewThumb { width: 110px; height: 82px; object-fit: cover; display: block; border-radius: 3px; }
+.removePreviewButton { position: absolute; top: -10px; right: -10px; background-color: #dc3545; color: white; border: 2px solid white; border-radius: 50%; width: 24px; height: 24px; font-size: 14px; font-weight: bold; line-height: 20px; text-align: center; cursor: pointer; padding: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.25); z-index: 10; }
+.removePreviewButton:hover { background-color: #c82333; transform: scale(1.1); }
+.imagePreviewContainer ~ .uploadButton, .formGroup ~ .uploadButton { margin-top: 10px; }
+
+.formNote { font-size: 0.8em; color: #6c757d; margin-top: 8px; margin-bottom: 15px; }
+.formActions { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; align-items: flex-start; }
+
+.button {
+  padding: 10px 20px; /* Default button padding */
+  font-size: 0.95em;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
+  font-weight: 500;
+  text-align: center;
+  display: inline-block; 
+  line-height: normal; /* Let browser calculate line-height based on font-size & padding */
+  margin: 0; 
+  vertical-align: middle; /* Should help with inline-block alignment */
+}
+
+/* --- MODIFICATION FOR BUTTON ALIGNMENT IN TABLE --- */
+.editButton,
+.deleteButton {
+  color: white;
+  font-size: 0.85em; 
+  padding-top: 4px;    /* Fine-tune vertical padding */
+  padding-bottom: 4px; /* Fine-tune vertical padding */
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 1.4;    /* Ensure text inside button is well-centered vertically */
+  display: inline-flex; /* Make button a flex container */
+  align-items: center;   /* Vertically center text within the button */
+  justify-content: center; /* Horizontally center text (good for icon buttons later) */
+  /* vertical-align: middle; is inherited from .button */
+}
+/* --- END OF MODIFICATION --- */
+
+.editButton {
+  background-color: #17a2b8;
+}
+.editButton:hover:not(:disabled) { background-color: #117a8b; }
+
+.deleteButton {
+  background-color: #dc3545;
+}
+.deleteButton:hover:not(:disabled) { background-color: #bd2130; }
+
+
+.uploadButton { background-color: #007bff; color: white; width: auto; }
+.uploadButton:hover:not(:disabled) { background-color: #0056b3; }
+.submitButton { background-color: #28a745; color: white; }
+.submitButton:hover:not(:disabled) { background-color: #1e7e34; }
+.cancelButton { background-color: #6c757d; color: white; }
+.cancelButton:hover:not(:disabled) { background-color: #545b62; }
+
+.button:hover { opacity: 0.9; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.button:active { transform: translateY(1px); }
+.button:disabled { background-color: #adb5bd; cursor: not-allowed; opacity: 0.7; }
+
+.message { padding: 12px 15px; margin-bottom: 20px; border-radius: 5px; font-size: 0.95em; text-align: center; }
+.successMessage { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.errorMessage { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+.loadingMessage, .emptyMessage { text-align: center; padding: 30px 15px; font-size: 1.1em; color: #6c757d; }
+
+
+.inlineInput {
+  width: 90px;
+  padding: 0.2em 0.5em;
+  margin-right: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.editBtn, .saveBtn, .cancelBtn, .deleteBtn {
+  margin-right: 0.3em;
+  padding: 0.3em 0.8em;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95em;
+  cursor: pointer;
+}
+
+.editBtn { background: #007bff; color: #fff; }
+.saveBtn { background: #28a745; color: #fff; }
+.cancelBtn { background: #6c757d; color: #fff; }
+.deleteBtn { background: #dc3545; color: #fff; }
+.editBtn:hover { background: #0056b3; }
+.saveBtn:hover { background: #218838; }
+.cancelBtn:hover { background: #343a40; }
+.deleteBtn:hover { background: #c82333; }

@@ -1,0 +1,138 @@
+/* frontend/src/pages/NewSite/ReviewsSection.module.css */
+.reviewsSection {
+  background-color: #161414;
+  color: #e0e0e0;
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+margin: 1rem 1rem;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.reviewsSection::before { /* Un-nested */
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.sectionTitle {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.highlight {
+  color: #d90429;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #a0a0a0;
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.reviewsSliderStatic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding-bottom: 2rem;
+  justify-items: center; /* Try to center items within their grid cell */
+}
+/* If grid container itself is not full width, this might help center the block of items */
+/* For truly centering the last row if it's not full, it's often easier with flexbox or JS logic, */
+/* or rely on Swiper to handle this with its `centeredSlides` option if applicable. */
+/* For a grid, one trick for last item:
+   .reviewCard:last-child:nth-child(3n - 1) { grid-column-start: 2; } // If 3 columns, centers 2nd item of 2
+   .reviewCard:last-child:nth-child(3n - 2) { grid-column: span 3 / auto; text-align: center;} // If 3 cols, centers 1st item of 1
+ This gets complex. Simpler to ensure an even number of items for static display or use Swiper.
+*/
+
+
+.reviewCard {
+  background-color: #121212;
+  border-radius: 10px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Make card take full width of its grid cell */
+  max-width: 380px; /* Max card width */
+}
+.reviewCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(217, 4, 41, 0.1);
+}
+
+/* REMOVED .reviewerAvatar styles */
+
+.reviewContent {
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.reviewText {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #b0b0b0;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.reviewerInfo {
+  margin-top: auto;
+}
+
+.reviewerName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.carMentioned {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.starRating {
+  color: #d90429;
+  font-size: 1.1rem;
+}
+.starRating i {
+  margin: 0 0.1rem;
+}
+
+@media (max-width: 768px) {
+  .reviewsSection {
+    padding: 4rem 1.5rem;
+  }
+  .reviewsSliderStatic {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .reviewCard {
+    padding: 2rem 1.5rem;
+  }
+}

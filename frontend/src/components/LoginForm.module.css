@@ -1,0 +1,217 @@
+/* frontend/src/components/LoginForm.module.css */
+
+.pageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 140px); /* Adjust based on your navbar/footer */
+  padding: 2rem 1rem;
+  /* Ensure your background image path is correct and in /public */
+  background-image: url('/images/classic-car-bg.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+.loginFormBox {
+  max-width: 420px;
+  width: 100%;
+  padding: 30px 35px;
+  background-color: rgba(0, 0, 0, 0.82); 
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: #ffffff;
+  margin-bottom: 30px;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.inputWrapper {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  left: 15px;
+  top: 14px;
+  color: rgba(255, 255, 255, 0.7); 
+  font-size: 0.95em;
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+  background-color: transparent;
+  padding: 0 5px;
+}
+
+.input {
+  /* CHANGED: Using a solid, dark grey background */
+  background-color: #282828; /* Solid dark grey. Adjust if needed. */
+  color: #ffffff; /* Ensure text color is white */
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  border-radius: 6px;
+  padding: 14px 15px;
+  font-size: 1em;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+}
+
+/* Label animation when input is focused or has content */
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label,
+.input:-webkit-autofill + .label {
+  top: -18px; 
+  left: 10px;
+  font-size: 0.8em; 
+  color: #ffffff;
+  /* background-color: rgba(0, 0, 0, 0.82); Match .loginFormBox background */
+  padding: 0 5px;
+  border-radius: 3px;
+}
+
+/* Autofill styles for Chrome/Safari/Edge */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover, 
+.input:-webkit-autofill:focus, 
+.input:-webkit-autofill:active  {
+    /* CHANGED: Forcing the background color of autofilled input to match solid dark grey */
+    -webkit-box-shadow: 0 0 0 30px #282828 inset !important; /* Match new solid .input background */
+    -webkit-text-fill-color: #ffffff !important; /* Ensure text is white */
+    caret-color: #ffffff !important; /* Cursor color */
+    border: 1px solid rgba(255, 255, 255, 0.3) !important; /* Match new .input border */
+}
+
+
+.input:focus {
+  border-color: #d90429; 
+  /* Optional: Slightly change background on focus if desired, but keep it dark */
+  background-color: #333333; /* Slightly lighter dark grey on focus */
+  box-shadow: 0 0 0 3px rgba(217, 4, 41, 0.25); /* Red glow */
+}
+
+/* ... (rest of the styles for .forgotPasswordWrapper, .button, .error, .toggleFormText etc. remain the same as the previous version) ... */
+.forgotPasswordWrapper {
+  width: 100%;
+  text-align: right;
+  margin-bottom: 20px;
+  margin-top: -15px;
+}
+
+.forgotPassword {
+  color: #bdc3c7;
+  font-size: 0.85em;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.forgotPassword:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.button {
+  width: 100%;
+  padding: 12px 15px;
+  color: #ffffff;
+  border: 2px solid #d90429;
+  border-radius: 6px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.1s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: transparent;
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.button.primary {
+  background-color: #d90429;
+  color: #ffffff;
+  border-color: #d90429;
+}
+
+.button.primary:hover {
+  background-color: #b80020;
+  border-color: #b80020;
+}
+
+.button.secondary:hover {
+  background-color: rgba(217, 4, 41, 0.15);
+}
+
+.error, .errorMessage {
+  color: #f8d7da;
+  background-color: rgba(220, 53, 69, 0.25);
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.9em;
+  border: 1px solid rgba(220, 53, 69, 0.5);
+}
+
+.successMessageRegister {
+  color: #d1e7dd;
+  background-color: rgba(25, 135, 84, 0.25);
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 0.9em;
+  border: 1px solid rgba(25, 135, 84, 0.5);
+}
+
+.toggleFormText {
+  text-align: center;
+  margin-top: 25px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9em;
+}
+
+.toggleLink {
+  background: none;
+  border: none;
+  color: #ffffff;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1em; 
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.toggleLink:hover {
+  color: #d90429;
+}

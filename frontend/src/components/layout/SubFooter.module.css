@@ -1,0 +1,207 @@
+/* frontend/src/components/layout/SubFooter.module.css */
+.subFooter {
+  background-color: #0a0a0a;
+  color: #a0a0a0;
+  padding: 4rem 2rem 1.5rem;
+  border-top: 3px solid #d90429;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.footerColumn {
+  /* Base styles for columns */
+}
+
+.columnTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+.columnTitle::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #d90429;
+    margin-top: 0.5rem;
+}
+
+.highlight {
+  color: #d90429;
+}
+
+.aboutText {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.socialIcons a {
+  color: #a0a0a0;
+  font-size: 1.3rem;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #333333;
+  border-radius: 50%;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.socialIcons a:hover {
+  color: #ffffff;
+  border-color: #d90429;
+  background-color: #d90429;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkList li a {
+  display: block;
+  color: #a0a0a0;
+  text-decoration: none;
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.linkList li a:hover {
+  color: #d90429;
+  padding-left: 5px;
+}
+
+.contactList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.contactList li {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.contactList li i {
+  margin-right: 0.8rem;
+  color: #d90429;
+  width: 16px;
+  margin-top: 0.2em;
+}
+
+.newsletterText {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.newsletterForm {
+  display: flex;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #333333;
+}
+.newsletterInput {
+  flex-grow: 1;
+  padding: 0.7rem 1rem;
+  border: none;
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+.newsletterInput::placeholder {
+  color: #666;
+}
+.newsletterButton {
+  background-color: #d90429;
+  color: #ffffff;
+  border: none;
+  padding: 0.7rem 0.2rem;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+.newsletterButton:hover {
+  background-color: #b80020;
+}
+
+.bottomBar {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2a2a2a;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777777;
+  display: flex;
+  flex-direction: column; /* Default to column for smaller screens */
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legalLinks {
+    display: flex; /* Ensure legal links are in a row if space permits */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    justify-content: center;
+}
+
+.legalLinks a {
+    color: #777777;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: color 0.2s ease;
+}
+.legalLinks a:hover {
+    color: #d90429;
+}
+.legalLinks span {
+    margin: 0 0.3rem;
+    display: inline-block; /* Ensures it takes space */
+}
+
+@media (min-width: 768px) { /* Apply row layout for bottomBar on larger screens */
+    .bottomBar {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 767px) { /* Adjust grid for smaller screens */
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Smaller min width for columns */
+    gap: 1.5rem;
+  }
+  .columnTitle {
+    font-size: 1.3rem;
+  }
+  .legalLinks span {
+    display: none; /* Hide separators on very small screens if lines wrap too much */
+  }
+  .legalLinks a {
+    margin-bottom: 0.3rem; /* Add some space if they wrap */
+  }
+}

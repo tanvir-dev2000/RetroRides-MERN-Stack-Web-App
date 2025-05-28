@@ -1,0 +1,138 @@
+/* frontend/src/pages/AboutUsPage/sections/TimelineSection.module.css */
+.timelineSection {
+  background-color: #ffffff; /* White section background */
+  color: #333333;
+  padding: 4rem 1.5rem; 
+  margin: 0 auto 2rem auto; /* Margin bottom to separate from next section, 0 top if hero is full width */
+  border-radius: 15px;
+  overflow: hidden;
+  max-width: 1600px;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.highlight {
+  color: #d90429;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: #555555;
+  margin-bottom: 4rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background-color: #d90429;
+  top: 0; bottom: 0; left: 50%;
+  margin-left: -2px;
+  z-index: 1;
+}
+
+.timelineItem {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  box-sizing: border-box;
+  margin-bottom: 3rem;
+  z-index: 2;
+}
+
+.timelineItem.left {
+  left: 0;
+  text-align: right;
+}
+
+.timelineItem.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timelineIconWrapper { /* Renamed from timelineIcon for clarity */
+  position: absolute;
+  width: 50px; height: 50px;
+  background-color: #ffffff;
+  border: 3px solid #d90429; /* Slightly thinner border */
+  top: 15px;
+  border-radius: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timelineItem.left .timelineIconWrapper { right: -26.5px; } /* Adjusted for 3px border */
+.timelineItem.right .timelineIconWrapper { left: -26.5px; } /* Adjusted for 3px border */
+
+.iconInCircle { /* Class for the <i> tag */
+  font-size: 1.4rem; /* Adjusted icon size */
+  color: #d90429;
+}
+
+.timelineContent {
+  padding: 20px 25px; /* Adjusted padding */
+  background-color: #f8f9fa; /* Light grey card background */
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow */
+  border: 1px solid #e7e7e7; /* Lighter border */
+}
+.timelineItem.left .timelineContent { margin-right: 25px; }
+.timelineItem.right .timelineContent { margin-left: 25px; }
+
+.year {
+  display: block; font-size: 0.9rem; color: #d90429;
+  margin-bottom: 0.5rem; font-weight: 600;
+}
+.eventTitle {
+  font-size: 1.25rem; font-weight: 600; color: #212529; /* Standard dark text */
+  margin-bottom: 0.5rem;
+}
+.eventDescription {
+  font-size: 0.9rem; line-height: 1.6; color: #495057; /* Standard grey text */
+}
+
+@media screen and (max-width: 768px) {
+  .timeline::after { left: 25px; margin-left: -2px;} /* Adjusted line position */
+  .timelineItem {
+    width: 100%;
+    padding-left: 60px; /* Adjusted padding for icon */
+    padding-right: 15px;
+    text-align: left !important;
+    margin-bottom: 2.5rem;
+  }
+  .timelineItem.left, .timelineItem.right { left: 0%; }
+  .timelineIconWrapper {
+    left: 0px; /* Icons all on the left */
+    width: 40px; height: 40px;
+  }
+  .iconInCircle { font-size: 1.1rem; } /* Smaller icon in mobile view */
+  .timelineContent { padding: 15px; margin-left: 0 !important; margin-right: 0 !important;}
+}
