@@ -14,7 +14,7 @@ const port = process.env.PORT || 5500; // Use environment variable for port
 
 // Apply CORS BEFORE any routes
 app.use(cors({
-  origin: 'http://localhost:5173', // Consider using an environment variable for this
+  origin: 'https://retrorides-fe.onrender.com || http://localhost:5173', // Consider using an environment variable for this
   credentials: true
 }));
 
