@@ -11,10 +11,21 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 const port = process.env.PORT || 5500; // Use environment variable for port
-
+const allowedOrigins = [
+  'https://retrorides-fe.onrender.com',
+  'http://localhost:5173'
+];
 // Apply CORS BEFORE any routes
-app.use(cors({
-  origin: 'https://retrorides-fe.onrender.com || http://localhost:5173', // Consider using an environment variable for this
+app.use(require('cors')({
+  origin: function(origin, callback) {
+    // allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
