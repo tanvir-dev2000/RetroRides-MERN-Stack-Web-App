@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './AdminDashboard.module.css';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
 
 const initialCarDetails = {
   make: '', model: '', year: '', price: '', mileage: '',
@@ -40,7 +41,7 @@ const EditCarPage = () => {
       setErrorMessage('');
       try {
         const config = { withCredentials: true };
-        const { data } = await axios.get(`http://localhost:5500/api/cars/${carId}`, config);
+        const { data } = await axios.get(`${API_BASE}/api/cars/${carId}`, config);
         setCarDetails({
           ...initialCarDetails,
           ...data,
@@ -131,7 +132,7 @@ const EditCarPage = () => {
     const formData = new FormData();
     files.forEach(file => formData.append('images', file));
     const config = { headers: { 'Content-Type': 'multipart/form-data' }, withCredentials: true };
-    const { data } = await axios.post('http://localhost:5500/api/upload', formData, config);
+    const { data } = await axios.post(`${API_BASE}/api/upload`, formData, config);
     setUploading(false);
     return data.images || [];
   };
@@ -154,7 +155,7 @@ const EditCarPage = () => {
         publicIdsToDelete: imagesToDelete,
       };
       const config = { headers: { 'Content-Type': 'application/json' }, withCredentials: true };
-      await axios.put(`http://localhost:5500/api/cars/${carId}`, payload, config);
+      await axios.put(`${API_BASE}/api/cars/${carId}`, payload, config);
       setFormMessage('Car updated successfully!');
       setTimeout(() => {
         navigate('/admin/manage-cars');

@@ -8,6 +8,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
 
 const FeaturedCarsSection = () => {
   const [featuredCars, setFeaturedCars] = useState([]);
@@ -22,7 +23,7 @@ const FeaturedCarsSection = () => {
       try {
         setLoading(true);
         setError(null);
-        const response = await axios.get('/api/cars');
+        const response = await axios.get(`${API_BASE}/api/cars`);
         if (Array.isArray(response.data.cars)) {
           setFeaturedCars(response.data.cars.slice(0, 8));
         } else {

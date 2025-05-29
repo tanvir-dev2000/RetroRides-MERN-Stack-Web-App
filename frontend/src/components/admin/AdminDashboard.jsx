@@ -5,6 +5,8 @@ import AuthContext from '../../context/AuthContext'; // Corrected path from your
 import styles from './AdminDashboard.module.css';
 import ManageUsers from './ManageUsers';
 import TransactionHistory from './TransactionHistory';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
+
 // Removed Link import if not used for quick actions yet
 
 const AdminDashboard = () => {
@@ -24,7 +26,7 @@ const AdminDashboard = () => {
       setStatsError('');
       try {
         const config = { withCredentials: true };
-        const { data } = await axios.get('http://localhost:5500/api/admin/dashboard-stats', config);
+        const { data } = await axios.get(`${API_BASE}/api/admin/dashboard-stats`, config);
         setStats({
           totalCars: data.totalCars || 0,
           registeredUsers: data.totalUsers || 0,

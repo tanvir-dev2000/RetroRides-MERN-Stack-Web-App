@@ -4,6 +4,7 @@ import axios from 'axios';
 import styles from './LoginForm.module.css';
 import { useNavigate, Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext.jsx';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ const LoginForm = () => {
     setError('');
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5500'}/api/auth/login`,
+        `${API_BASE}/api/auth/login`,
         { email, password },
         { withCredentials: true }
       );

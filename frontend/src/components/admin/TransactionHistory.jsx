@@ -2,13 +2,14 @@
 
 import React, { useEffect, useState } from 'react';
 import styles from './AdminDashboard.module.css';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
 
 const TransactionHistory = () => {
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/admin/transactions', { credentials: 'include' })
+    fetch(`${API_BASE}/api/admin/transactions`, { credentials: 'include' })
       .then(res => res.json())
       .then(data => { setTransactions(data); setLoading(false); })
       .catch(() => setLoading(false));

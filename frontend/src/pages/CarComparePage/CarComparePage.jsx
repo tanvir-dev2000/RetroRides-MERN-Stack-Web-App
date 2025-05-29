@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './CarComparePage.module.css';
 import { useCompare } from '../../context/CompareContext';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
 
 const featureRows = [
   { label: 'Manufacturer', get: car => car.make || '-' },
@@ -107,7 +108,7 @@ const CarComparePage = () => {
     Promise.all(
       [0, 1].map(i =>
         compareIds[i]
-          ? fetch(`/api/cars/${compareIds[i]}`).then(r => r.json())
+          ? fetch(`${API_BASE}/api/cars/${compareIds[i]}`).then(r => r.json())
           : Promise.resolve(null)
       )
     ).then(setCarData);
@@ -122,7 +123,7 @@ const CarComparePage = () => {
           copy[i] = true;
           return copy;
         });
-        fetch(`/api/cars?search=${encodeURIComponent(searchTerms[i])}`)
+        fetch(`${API_BASE}/api/cars?search=${encodeURIComponent(searchTerms[i])}`)
           .then(r => r.json())
           .then(data => {
             setSearchResults(results => {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './AdminDashboard.module.css';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
@@ -8,7 +9,7 @@ const ManageUsers = () => {
   const [editFields, setEditFields] = useState({});
 
   useEffect(() => {
-    fetch('/api/admin/users', { credentials: 'include' })
+    fetch(`${API_BASE}/api/admin/users`, { credentials: 'include' })
       .then(res => res.json())
       .then(data => { setUsers(data); setLoading(false); })
       .catch(() => setLoading(false));
@@ -30,7 +31,7 @@ const ManageUsers = () => {
   };
 
   const handleSave = async (userId) => {
-    const res = await fetch(`/api/admin/users/${userId}`, {
+    const res = await fetch(`${API_BASE}/api/admin/users/${userId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -47,7 +48,7 @@ const ManageUsers = () => {
 
   const handleDelete = async (userId) => {
     if (!window.confirm('Are you sure you want to delete this user?')) return;
-    const res = await fetch(`/api/admin/users/${userId}`, {
+    const res = await fetch(`${API_BASE}/api/admin/users/${userId}`, {
       method: 'DELETE',
       credentials: 'include'
     });

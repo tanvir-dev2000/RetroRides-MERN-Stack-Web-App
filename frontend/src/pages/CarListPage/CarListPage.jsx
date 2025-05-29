@@ -13,13 +13,15 @@ const CarListPage = () => {
   const [filters, setFilters] = useState({});
   const [sortOption, setSortOption] = useState('custom');
   const [searchTerm, setSearchTerm] = useState('');
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
+
 
   // Fetch cars
   const fetchCars = useCallback(async () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.get('/api/cars');
+      const response = await axios.get(`${API_BASE}/api/cars`);
       if (Array.isArray(response.data.cars)) {
         setAllCars(response.data.cars);
         setDisplayedCars(response.data.cars);

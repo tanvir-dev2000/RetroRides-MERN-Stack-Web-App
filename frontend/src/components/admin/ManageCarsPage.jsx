@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './AdminDashboard.module.css';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
+
 
 const initialCarDetails = {
   make: '', model: '', year: '', price: '', mileage: '',
@@ -42,7 +44,7 @@ const ManageCarsPage = () => {
     setCarsListError('');
     try {
       const config = { withCredentials: true };
-      const { data } = await axios.get('http://localhost:5500/api/cars/admin/all', config);
+      const { data } = await axios.get(`${API_BASE}/api/cars/admin/all`, config);
       setCarsList(data || []);
     } catch (error) {
       setCarsList([]);
@@ -114,7 +116,7 @@ const ManageCarsPage = () => {
     const formData = new FormData();
     files.forEach(file => formData.append('images', file));
     const config = { headers: { 'Content-Type': 'multipart/form-data' }, withCredentials: true };
-    const { data } = await axios.post('http://localhost:5500/api/upload', formData, config);
+    const { data } = await axios.post(`${API_BASE}/api/upload`, formData, config);
     return data.images || [];
   };
 
@@ -132,7 +134,7 @@ const ManageCarsPage = () => {
       const payload = { ...carDetails, images: uploadedImages };
       if (!payload.status) payload.status = 'Available';
       const config = { headers: { 'Content-Type': 'application/json' }, withCredentials: true };
-      const { data: newCar } = await axios.post('http://localhost:5500/api/cars', payload, config);
+      const { data: newCar } = await axios.post(`${API_BASE}/api/cars`, payload, config);
       setFormMessage(`Car "${newCar.make} ${newCar.model}" created successfully!`);
       setCarDetails(initialCarDetails);
       setImageFiles([]);
@@ -152,7 +154,7 @@ const ManageCarsPage = () => {
       setFormMessage('');
       try {
         const config = { withCredentials: true };
-        await axios.delete(`http://localhost:5500/api/cars/${carId}`, config);
+        await axios.delete(`${API_BASE}/api/cars/${carId}`, config);
         setFormMessage(`Car ID ${carId} deleted successfully.`);
         fetchAdminCars();
       } catch (error) {

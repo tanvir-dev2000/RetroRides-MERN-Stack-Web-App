@@ -4,6 +4,7 @@ import axios from 'axios';
 import styles from './LoginForm.module.css'; // Uses the same CSS module for consistent style
 import { useNavigate, Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext.jsx';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ const RegisterForm = () => {
     }
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5500'}/api/auth/register`,
+        `${API_BASE}/api/auth/register`,
         { firstName, lastName, email, password, phoneNumber, address }
       );
       

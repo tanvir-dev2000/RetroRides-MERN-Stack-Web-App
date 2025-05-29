@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ChatBot.module.css';
-
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
 const ChatBot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
@@ -13,7 +13,7 @@ const ChatBot = () => {
     setMessages([...messages, { user: true, text: input }]);
     setLoading(true);
     try {
-      const res = await fetch('/api/chatbot', {
+      const res = await fetch(`${API_BASE}/api/chatbot`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: input })

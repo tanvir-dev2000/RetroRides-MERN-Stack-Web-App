@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './CartPage.module.css';
-
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
 const TAX_RATE = 0.08; // 8% tax
 
 const CartPage = () => {
@@ -12,7 +12,7 @@ const CartPage = () => {
 
   const fetchCart = async () => {
     setLoading(true);
-    const res = await fetch('/api/cart', { credentials: 'include' });
+    const res = await fetch(`${API_BASE}/api/cart`, { credentials: 'include' });
     const data = await res.json();
     setCart(data);
     setLoading(false);
@@ -23,7 +23,7 @@ const CartPage = () => {
   }, []);
 
   const handleRemove = async (carId) => {
-    await fetch('/api/cart/remove', {
+    await fetch(`${API_BASE}/api/cart/remove`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -37,7 +37,7 @@ const CartPage = () => {
     if (!cart || !cart.items || cart.items.length === 0) return;
     setProcessing(true);
     try {
-      const res = await fetch('/api/transactions', {
+      const res = await fetch(`${API_BASE}/api/transactions`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

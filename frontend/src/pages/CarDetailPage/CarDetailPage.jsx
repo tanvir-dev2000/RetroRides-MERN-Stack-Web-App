@@ -8,6 +8,8 @@ import { Navigation, Thumbs } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
+
 
 const CarDetailPage = () => {
   const { carId } = useParams();
@@ -23,7 +25,7 @@ const CarDetailPage = () => {
   useEffect(() => {
     // Fetch car data by ID
     const fetchCar = async () => {
-      const res = await fetch(`/api/cars/${carId}`);
+      const res = await fetch(`${API_BASE}/api/cars/${carId}`);
       const data = await res.json();
       setCar(data);
     };
@@ -46,7 +48,7 @@ const CarDetailPage = () => {
     }
     setAddingToCart(true);
     try {
-      const res = await fetch('/api/cart/add', {
+      const res = await fetch(`${API_BASE}/api/cart/add`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

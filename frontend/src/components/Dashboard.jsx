@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Dashboard.module.css';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
 
 const Dashboard = () => {
   const tabs = [
@@ -17,7 +18,7 @@ const Dashboard = () => {
     const fetchProfile = async () => {
       setLoadingProfile(true);
       try {
-        const res = await fetch('/api/auth/profile', { credentials: 'include' });
+        const res = await fetch(`${API_BASE}/api/auth/profile`, { credentials: 'include' });
         const data = await res.json();
         setProfile(data.user || data);
       } catch (err) {
@@ -33,7 +34,7 @@ const Dashboard = () => {
     const fetchOrders = async () => {
       setLoadingOrders(true);
       try {
-        const res = await fetch('/api/transactions/my', { credentials: 'include' });
+        const res = await fetch(`${API_BASE}/api/transactions/my`, { credentials: 'include' });
         const data = await res.json();
         setOrders(Array.isArray(data) ? data : []);
       } catch (err) {
@@ -47,7 +48,7 @@ const Dashboard = () => {
   // Handler to update profile fields (phone/address)
   const handleProfileUpdate = async (updatedFields) => {
     try {
-      const res = await fetch('/api/auth/profile', {
+      const res = await fetch(`${API_BASE}/api/auth/profile`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

@@ -3,6 +3,8 @@ import React, { createContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const AuthContext = createContext();
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5500';
+
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -13,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     setLoadingAuth(true);
     try {
       // Attempt to fetch user profile if a token cookie might exist
-      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5500'}/api/auth/profile`, {
+      const response = await axios.get(`${API_BASE}/api/auth/profile`, {
         withCredentials: true,
       });
       if (response.data && response.data._id) {
